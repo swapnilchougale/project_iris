@@ -17,17 +17,20 @@ def hello_flask():
 ###########################################################################################
 
 @app.route("/predict_class")
-def IrisModel():
-    sepallengthCm=6.7
-    sepalwidthCm=3.5
-    petallengthCm=5.3
-    petalwidthCm=3
+def Iris_Model():
+    sepallengthCm=6.6
+    sepalwidthCm=3.0
+    petallengthCm=4.4
+    petalwidthCm=1.4
     
     i_class = IrisModel(sepallengthCm,sepalwidthCm,petallengthCm,petalwidthCm)
-    classs = i_class.get_predicted_class()
+    result = i_class.get_predicted_class()
 
-    return jsonify ({"Result": f"Predicted iris class is:{classs}"})
+    return jsonify ({"Result": f"Predicted iris class is:{result}"})
+    # return render_template("home.html")
 
 
 if __name__=="__main__":
-    app.run()
+    app.run(debug=True)
+    
+    
